@@ -24,28 +24,42 @@ namespace mmc
         }
 
 
-        public static void Play_Video(string filePath)  //Memutar video
+        public static void Play_Video(string filePath, int fps = 5)
         {
+            string param = "\"" + filePath + "\"";
+            Essential.Execute_FFMPEG("-i " + param + " -vf fps=" + fps + @" Frame\%d.jpg -hide_banner", true);
+
+            //========================
+
             DateTime start_play = DateTime.Now;
             Audio.Get_Audio_And_Play(filePath);
             int durasi_video = Durasi_Video(filePath);
 
             DateTime play_now = DateTime.Now;
-
-            string astring;
-            string param;
+            int idx;
 
             while (Essential.TimeSpan_To_Seconds(play_now - start_play) < durasi_video)
             {
                 play_now = DateTime.Now;
 
-                astring = Convert.ToString(play_now - start_play);
-                param = astring.Substring(0, 12);
+                idx = (int)Essential.TimeSpan_To_MiliSeconds(play_now - start_play) / (1000 / fps);
+                idx++;
 
-                Image.Get_Frame(filePath, param);
+
                 Console.SetCursorPosition(0, 0);
-                Image.Draw_Image("gambar.jpg");
+                try
+                {
+                    Image.Draw_Image(@"Frame\" + idx + ".jpg");
+                }
+                catch {
+                    break;
+                }
 
+            }
+            DirectoryInfo dir = new DirectoryInfo("Frame");
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                file.Delete();
             }
 
         }

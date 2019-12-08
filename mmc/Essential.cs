@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace mmc
 {
@@ -39,6 +40,19 @@ namespace mmc
                    interval.Minutes * 60 * 1000 +
                    interval.Seconds * 1000 +
                    interval.Milliseconds;
+        }
+
+        public static void Execute_FFMPEG(string command, bool wait)    //Mengeksekusi ffmpeg.exe
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = true;
+            startInfo.UseShellExecute = false;
+            startInfo.FileName = @"..\..\ffmpeg.exe";
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.Arguments = command;
+
+            Process exeProcess = Process.Start(startInfo);
+            if (wait) exeProcess.WaitForExit();
         }
 
 

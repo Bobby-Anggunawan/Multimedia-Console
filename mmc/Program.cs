@@ -34,7 +34,7 @@ namespace mmc
             SetConsoleMode(handle, mode | 0x4);
             //==========================================================================
 
-
+            Video.Play_Video(@"D:\Climax Form.mp4", 10);
 
 
             ReadKey();
