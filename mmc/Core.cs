@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace mmc
 {
@@ -68,6 +69,11 @@ namespace mmc
                         break;
                 }
             }
+
+            Color pixel = Color.Black;
+            Console.Write("\x1b[48;2;{0};{1};{2}m\n", pixel.R, pixel.G, pixel.B);
+
+
         }
     }
 }

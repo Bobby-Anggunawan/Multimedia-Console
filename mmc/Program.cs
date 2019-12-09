@@ -35,11 +35,12 @@ namespace mmc
             //==========================================================================
 
             //Video.Play_Video(@"D:\Climax Form.mp4", 10);
+            //Core.Play("Tak berjudul 2 960x540 2,14Mbps 2019-08-01 15-55-22.mp4");
+            User_Interface.cmd.Args_Handler(args);
 
-            Core.Play("Tak berjudul 2 960x540 2,14Mbps 2019-08-01 15-55-22.mp4");
+            //Core.Play(@"C:\Users\Asus X441M\Videos\Tak berjudul 2 960x540 2,14Mbps 2019-08-01 15-55-22.mp4");
 
-
-            ReadKey();
+            //ReadKey();
         }
     }
 }

@@ -173,10 +173,13 @@ namespace mmc
 
             public void Print_File_List()
             {
-                foreach (var a in path_list)
+                Console.ForegroundColor = ConsoleColor.Green;
+                foreach (var a in name_list)
                 {
-                    Console.WriteLine(a);
+                    Console.WriteLine("\t"+a);
                 }
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine();
             }
 
             public static bool Is_Media(FileInfo file)
