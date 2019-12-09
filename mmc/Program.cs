@@ -34,7 +34,9 @@ namespace mmc
             SetConsoleMode(handle, mode | 0x4);
             //==========================================================================
 
-            Video.Play_Video(@"D:\Climax Form.mp4", 10);
+            //Video.Play_Video(@"D:\Climax Form.mp4", 10);
+
+            Core.Play("Tak berjudul 2 960x540 2,14Mbps 2019-08-01 15-55-22.mp4");
 
 
             ReadKey();
