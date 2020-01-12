@@ -46,9 +46,16 @@ namespace mmc
             //User_Interface.cmd.Args_Handler(args);
 
             Console.CursorVisible = false;
-            User_Interface.GraphicalInterface.MainMenu();
-
-            //ReadKey();
+            //Kalo gak ada directory "Frame", file video gak bisa jalan
+            if (Directory.Exists("Frame"))
+            {
+                User_Interface.GraphicalInterface.MainMenu();
+            }
+            else
+            {
+                Directory.CreateDirectory("Frame");
+                User_Interface.GraphicalInterface.MainMenu();
+            }
         }
     }
 }
