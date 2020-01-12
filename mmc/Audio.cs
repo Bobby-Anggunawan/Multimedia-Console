@@ -56,6 +56,7 @@ namespace mmc
             {
                 SoundPlayer audio = new SoundPlayer("audio.wav");
                 audio.Play();
+                
             }
             else {
                 Console.Write("Audio gagal dijalankan");

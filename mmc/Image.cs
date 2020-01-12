@@ -15,6 +15,7 @@ namespace mmc
     {
         public static void Draw_Image(string filePath)  //Menampilkan isi dari file gambar ke layar
         {
+            Console.SetCursorPosition(0, 0);
             int kebawah = Essential.lebar_layar, kesamping = Essential.panjang_layar;
             try
             {
